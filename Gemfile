@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'icalendar', '~> 2.0'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'byebug', group: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
