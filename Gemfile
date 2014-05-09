@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'icalendar', '~> 2.0'
 gem 'rack-cors', :require => 'rack/cors'
