@@ -13,6 +13,13 @@ class EventListsController < ApplicationController
   def show
   end
 
+  # GET /fbd82d1d-248e-4f70-a2f2-9c9b32cfb3fd
+  # GET /fbd82d1d-248e-4f70-a2f2-9c9b32cfb3fd.json
+  def retrieve
+    @event_list = EventList.find_by_uid(params[:uid])
+    render :show
+  end
+
   # GET /event_lists/new
   def new
     @event_list = EventList.new
@@ -26,6 +33,9 @@ class EventListsController < ApplicationController
   # POST /event_lists.json
   def create
 
+    if EventList.exists?(uid:params[:uid])
+      EventList.destroy(EventList.find_by_uid(params[:uid]))
+    end
     @event_list = EventList.new(event_list_params)
 
     params['events'].each do |e|

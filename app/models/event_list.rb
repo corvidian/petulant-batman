@@ -1,6 +1,8 @@
 require 'icalendar'
 
 class EventList < ActiveRecord::Base
+  validates :uid, uniqueness: true
+
   has_many :events, :dependent => :destroy
 
   def to_ical

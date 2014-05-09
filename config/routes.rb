@@ -1,7 +1,9 @@
 PetulantBatman::Application.routes.draw do
   resources :events
 
-  resources :event_lists #, only: [:new, :show, :index]
+  resources :event_lists #, only: [:create, :show, :index]
+
+  get ':uid',  to:'event_lists#retrieve'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
